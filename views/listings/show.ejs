@@ -8,7 +8,6 @@
     <img src="<%= listing.image.url %>" style="width: 700pxpx; height: 450px; object-fit: cover; margin-right: 15px; border-radius: 8px;">
     <div>
       <h2 class="show-title"><%= listing.title %></h2>
-      <p class="show-p">Owned By : <%= listing.owner.username %></p>
       <p class="show-description"><%= listing.description %></p>
       <p class="show-p">&#8377;<strong><%= listing.price.toLocaleString("en-IN") %></strong>/night</p>
       <p class="show-p">City : <%= listing.location %></p>
