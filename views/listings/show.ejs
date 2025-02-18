@@ -4,7 +4,32 @@
   const coordinates = <%-  JSON.stringify(listing.geometry.coordinates)%>;
   const listingLocation = <%-  JSON.stringify(listing.location)%>;
 </script>
-<div style="display: flex; align-items: flex-start; margin: 20px; border: 1px solid #ddd; padding: 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<div class="listing-container">
+  <img src="<%= listing.image.url %>" class="listing-image">
+  
+  <div class="listing-info">
+    <h2 class="show-title"><%= listing.title %></h2>
+    <p class="show-description"><%= listing.description %></p>
+    <p class="show-p">&#8377;<strong><%= listing.price.toLocaleString("en-IN") %></strong>/night</p>
+    <p class="show-p">City: <%= listing.location %></p>
+    <p class="show-p">Country: <%= listing.country %></p>
+
+    <div class="button-container">
+      <a class="show-btns" href="/checkout">
+        <button class="show-butns book-butn">Checkout</button>
+      </a>
+      <% if (currUser && currUser._id.toString() === listing.owner._id.toString()) { %>
+        <a class="show-btns" href="/listings/<%= listing._id %>/edit">
+          <button class="show-butns edit-butn">Edit</button>
+        </a>
+        <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" style="margin: 0; padding: 0; display: inline-block;">
+          <button class="show-butns delete-butn">Delete</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+</div>
+<!-- <div style="display: flex; align-items: flex-start; margin: 20px; border: 1px solid #ddd; padding: 10px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <img src="<%= listing.image.url %>" style="width: 700pxpx; height: 450px; object-fit: cover; margin-right: 15px; border-radius: 8px;">
     <div>
       <h2 class="show-title"><%= listing.title %></h2>
@@ -32,7 +57,7 @@
           <%}%>
     </div>
   </div>
-  </div>
+  </div> -->
   
   <div class="mb-3 row col-6 offset-2">
     <%if(currUser){%>
