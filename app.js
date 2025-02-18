@@ -26,7 +26,6 @@ main().then( ( )=>{
     
 }).catch((err) =>{
     console.log(err);
-    
 })
 
 async function main(){
@@ -65,9 +64,9 @@ const sessionOptions = {
 
 };
 
-//app.get("/",(req,res) =>{
-  //  res.send("Hi I'm root");
-//});
+app.get("/",(req,res) =>{
+   res.redirect("/listings");
+});
 
 
 app.use(session(sessionOptions));
