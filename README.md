@@ -32,6 +32,9 @@ WanderLust is a full-stack travel accommodation web application that allows user
 - Passport.js
 
 ---
+## Hosting 
+> Render - https://wanderlust-nu7d.onrender.com/listings
+---
 
 ## MAP API
 > To show the location of listing before Booking
